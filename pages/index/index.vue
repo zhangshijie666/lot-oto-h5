@@ -10,6 +10,7 @@
 <script setup>
 setTimeout(() => {
   uni.reLaunch({
+    // 跳转
     url: '/pages/home/index'
   })
 }, 2000) // 显示 2 秒后跳转
