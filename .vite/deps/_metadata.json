@@ -1,0 +1,13 @@
+{
+  "hash": "40b3b3c1",
+  "browserHash": "68506817",
+  "optimized": {
+    "uview-ui": {
+      "src": "../../node_modules/uview-ui/index.js",
+      "file": "uview-ui.js",
+      "fileHash": "75f87ba2",
+      "needsInterop": false
+    }
+  },
+  "chunks": {}
+}

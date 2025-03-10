@@ -1,0 +1,83 @@
+{
+
+	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
+		{
+			"path": "pages/index/index",
+			"style": {
+				"navigationBarTitleText": "启动页"
+			}
+		},
+		{
+			"path": "pages/login/index",
+			"style": {
+				"navigationStyle": "custom"
+			}
+		},
+		{
+			"path": "pages/my/index",
+			"style": {
+				"navigationStyle": "custom"
+
+			}
+		},
+		{
+			"path": "pages/salesData/index",
+			"style": {
+				"navigationBarTitleText": "数据"
+			}
+		},
+		{
+			"path": "pages/settled/index",
+			"style": {
+				"navigationBarTitleText": "入驻"
+			}
+		},
+		{
+			"path": "pages/home/index",
+			"style": {
+				"navigationBarTitleText": "注册"
+			}
+		}
+	],
+	"tabBar": {
+		"color": "#666666",
+		"selectedColor": "#FF5722",
+		"backgroundColor": "#ffffff",
+		"borderStyle": "black",
+		"fontSize": "30rpx",
+		"list": [
+			{
+				"pagePath": "pages/home/index",
+				"text": "注册"
+			},
+			{
+				"pagePath": "pages/settled/index",
+				"text": "入驻"
+			},
+			{
+				"pagePath": "pages/salesData/index",
+				"text": "数据"
+			},
+			{
+				"pagePath": "pages/my/index",
+				"text": "我的"
+			}
+		]
+	},
+	"globalStyle": {
+		"navigationBarTextStyle": "black",
+		"navigationBarTitleText": "uni-app",
+		"navigationBarBackgroundColor": "#F8F8F8",
+		"backgroundColor": "#F8F8F8"
+	},
+	"uniIdRouter": {},
+	"easycom": {
+		"autoscan": true,
+		"custom": {
+			"^u--(.*)": "uview-plus/components/u-$1/u-$1.vue",
+			"^up-(.*)": "uview-plus/components/u-$1/u-$1.vue",
+			"^u-([^-].*)": "uview-plus/components/u-$1/u-$1.vue"
+		}
+	}
+
+}
