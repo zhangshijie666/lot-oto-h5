@@ -1,18 +1,14 @@
 <script>
 export default {
   onLaunch: function () {
-    console.log('App Launch')
+    console.log('App Launch', '231')
   },
   onShow: function () {
-    
-    console.log('App Show',"222")
-    
+    console.log('App Show', '222')
   },
   onHide: function () {
-    
-    console.log('App Hide','111')
-    
-  } 
+    console.log('App Hide', '111')
+  }
 }
 </script>
 
