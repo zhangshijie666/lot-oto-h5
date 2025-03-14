@@ -5,6 +5,4 @@ module.exports = {
       .filter(file => !ignoredDirs.some(dir => file.includes(dir)))
       .map(file => `prettier --write "${file}"`)
   }
-  //指定提交描述格式
-  // '**/*.{js,vue,ts,scss,css,html}': 'sh checkNoChinese.sh'
 }

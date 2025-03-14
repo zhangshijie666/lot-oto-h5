@@ -2,7 +2,8 @@
 
 # 安全模式：遇到错误立即退出
 set -eu
-
+# 打印调试信息
+echo "开始检查项目文件..."
 # 获取暂存区文件列表（正确处理含空格文件名）
 git diff --cached --name-only -z | while IFS= read -r -d '' file; do
   # 跳过删除操作的文件
