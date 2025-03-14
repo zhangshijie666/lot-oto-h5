@@ -15,6 +15,7 @@ let arr = [
 
 let  arr2 ="张三"
 let a ="111"
+let b ="222"
 
 </script>
 

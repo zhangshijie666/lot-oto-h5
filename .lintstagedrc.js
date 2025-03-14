@@ -1,8 +1,8 @@
-// .lintstagedrc.js
 module.exports = {
-  '**/*.{js,vue,css,scss,html,json}': files => {
-    // 过滤掉包含 uni_modules 的文件路径
-    const filteredFiles = files.filter(file => !file.includes('uni_modules'))
-    return filteredFiles.length ? [`prettier --write ${filteredFiles.join(' ')}`] : []
+  '**/*.{js,vue,css,scss,html,json}': filenames => {
+    const ignoredDirs = ['node_modules', 'dist']
+    return filenames
+      .filter(file => !ignoredDirs.some(dir => file.includes(dir)))
+      .map(file => `prettier --write "${file}"`)
   }
 }
