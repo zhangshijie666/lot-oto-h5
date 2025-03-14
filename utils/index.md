@@ -122,10 +122,18 @@ const handleScroll = debounce(() => {
 ```
   npx husky install 创建 .husky/ 目录。
   npx husky add .husky/pre-commit "npx lint-staged" // 创建 .husky/pre-commit 文件。
-  chmod +x .husky/pre-commit
- "lint-staged": { //在 package.json 中添加 提交前，自动格式化 *.js、*.vue、*.ts 等文件。
-  "**/*.{js,jsx,ts,tsx,vue}": "prettier --write"
-  }
+  chmod +x .husky/pre-commit  //赋予执行权限
+  
+  创建 .lintstagedrc.js 排除不需要格式化的文件
+    module.exports = {
+      '**/*.{js,vue,css,scss,html,json}': filenames => {
+        const ignoredDirs = ['uni_modules', 'node_modules', 'dist']
+        return filenames
+          .filter(file => !ignoredDirs.some(dir => file.includes(dir)))
+          .map(file => `prettier --write "${file}"`)
+      }
+    }
+
 ```
 ``` js
 //提交避免格式化
