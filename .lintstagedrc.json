@@ -1,4 +1,0 @@
-{
-  "**/*.{js,vue,css,scss,html,json}": ["prettier --write"],
-  "uni_modules/**": "echo 'Skipping uni_modules'"
-}
