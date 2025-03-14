@@ -115,6 +115,24 @@ const handleScroll = debounce(() => {
 
 ```
 5.添加 husky lint-staged 配置文件 做代码提交前的代码检查
+```
+"husky": "^8.0.0",
+"lint-staged": "^15.4.3",
+```
+```
+  npx husky install 创建 .husky/ 目录。
+  npx husky add .husky/pre-commit "npx lint-staged" // 创建 .husky/pre-commit 文件。
+  chmod +x .husky/pre-commit
+ "lint-staged": { //在 package.json 中添加 提交前，自动格式化 *.js、*.vue、*.ts 等文件。
+  "**/*.{js,jsx,ts,tsx,vue}": "prettier --write"
+  }
+```
+``` js
+//提交避免格式化
+git add .
+git commit -m 'xxx' --no-verify
+git push    
+```
 
 
 
