@@ -122,26 +122,43 @@ const handleScroll = debounce(() => {
 ```
   npx husky install 创建 .husky/ 目录。
   npx husky add .husky/pre-commit "npx lint-staged" // 创建 .husky/pre-commit 文件。
-  chmod +x .husky/pre-commit  //赋予执行权限
+  chmod +x .husky/pre-commit  // 赋予执行权限  不赋予权限 不会生效
   
-  创建 .lintstagedrc.js 排除不需要格式化的文件
-    module.exports = {
-      '**/*.{js,vue,css,scss,html,json}': filenames => {
-        const ignoredDirs = ['uni_modules', 'node_modules', 'dist']
-        return filenames
-          .filter(file => !ignoredDirs.some(dir => file.includes(dir)))
-          .map(file => `prettier --write "${file}"`)
-      }
-    }
+```
+```
+.lintstagedrc.js  //配置文件
+module.exports = {
+  '**/*.{js,vue,css,scss,html,json}': filenames => {
+    const ignoredDirs = ['uni_modules', 'node_modules', 'dist']
+    return filenames
+      .filter(file => !ignoredDirs.some(dir => file.includes(dir)))
+      .map(file => `prettier --write "${file}"`)
+  },
+  //指定提交描述格式
+  'git commit': ['sh ./checkCommitMessage.sh']
+}
+
+
+git commit -m 'xxx' --no-verify   //跳过检查
+```
+//checkCommitMessage.sh //检查提交描述格式 shell脚本
+```shell
+#!/bin/bash
+
+# 获取提交消息
+commit_msg=$(cat "$1")
+
+# 正则表达式：确保提交信息是全中文
+pattern="^[\u4e00-\u9fa5]+$"
+
+if [[ ! "$commit_msg" =~ $pattern ]]; then
+  echo "错误: 提交信息必须是全中文。"
+  echo "例子："
+  echo "修复了登录页的按钮显示问题"
+  exit 1
+fi
 
 ```
-``` js
-//提交避免格式化
-git add .
-git commit -m 'xxx' --no-verify
-git push    
-```
-
 
 
 

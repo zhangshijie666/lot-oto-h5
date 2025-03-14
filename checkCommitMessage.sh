@@ -1,14 +1,13 @@
-#!/bin/bash
+#!/usr/bin/env sh
 
-# 获取提交消息
 commit_msg=$(cat "$1")
 
-# 正则表达式：确保提交信息是全中文
-pattern="^[\u4e00-\u9fa5]+$"
-
-if [[ ! "$commit_msg" =~ $pattern ]]; then
-  echo "错误: 提交信息必须是全中文。"
-  echo "例子："
-  echo "修复了登录页的按钮显示问题"
-  exit 1
+# 使用 `awk` 检查是否包含中文字符
+if echo "$commit_msg" | awk '/[\xE4-\xE9]/ {exit 0} END {exit 1}'; then
+  exit 0
 fi
+
+echo "❌ 提交信息必须包含至少一个中文字符。"
+echo "例子："
+echo "修复了登录页的按钮显示问题"
+exit 1
