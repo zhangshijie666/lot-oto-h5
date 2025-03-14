@@ -6,6 +6,5 @@ module.exports = {
       .map(file => `prettier --write "${file}"`)
   }
   //指定提交描述格式
-  // 'git commit': ['sh ./checkCommitMessage.sh']
   // '**/*.{js,vue,ts,scss,css,html}': 'sh checkNoChinese.sh'
 }
