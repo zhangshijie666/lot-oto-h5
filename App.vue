@@ -7,7 +7,7 @@ export default {
     console.log('App Show', '222111')
   },
   onHide: function () {
-    console.log('App Hide', '1112')
+    console.log('App Hide', '111中文2')
   }
 }
 </script>
