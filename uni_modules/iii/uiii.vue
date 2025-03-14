@@ -1,24 +1,18 @@
-<template>
-
-</template>
+<template></template>
 
 <script setup>
 let arr = [
   {
     id: 1,
-     name: "张三",
-     age: 20,
+    name: '张三',
+    age: 20,
     sex: '男',
-    address:'北京'
-  },
+    address: '北京'
+  }
 ]
 
-let  arr2 ="张三"
-let a ="111"
-let b ="222"
-
+let arr2 = '张三'
+let a = 999
 </script>
 
- <style scoped>
-
-</style>
+<style scoped></style>
